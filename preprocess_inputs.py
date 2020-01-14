@@ -9,7 +9,7 @@ import numpy as np
 
 def preprocessingimage(input_image, height, width):
     image = cv2.resize(input_image, (width,height))
-    image = image.tranpose(2,0,1)  #2,0,1 is shuffle dimension to convert h*w*c to c*h*w. it brings the 2nd index to 0th index then 0th to 1st one and 1st to 2nd one.
+    image = mage.transpose((2,0,1)) #2,0,1 is shuffle dimension to convert h*w*c to c*h*w. it brings the 2nd index to 0th index then 0th to 1st one and 1st to 2nd one.
     image = image.reshape(1,3,height,width)
     return image
 
