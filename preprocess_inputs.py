@@ -1,6 +1,10 @@
 import cv2
 import numpy as np
 
+#note: check the pre-trained model shape input, e.g / shape: [1x3x256x456] = [BxCxHxW]
+#B - batch size, C - number of channels, H - image heightm W - image width
+#https://docs.openvinotoolkit.org/latest/_models_intel_human_pose_estimation_0001_description_human_pose_estimation_0001.html
+
 def preprocessingimage(input_image, height, width):
     image = cv2.resize(input_image, (width,height))
     image = image.tranpose(2,0,1)
