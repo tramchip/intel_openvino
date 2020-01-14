@@ -21,7 +21,7 @@ def pose_estimation(input_image):
     preprocessed_image = np.copy(input_image)
 
     # TODO: Preprocess the image for the pose estimation model
-    preprocessed_image = preprocessingimage(preprocessed_image,256,456)
+    preprocessed_image = preprocessingimage(preprocessed_image,(256,456)) # remember to put height and width in ()
 
     return preprocessed_image
 
@@ -36,7 +36,7 @@ def text_detection(input_image):
     preprocessed_image = np.copy(input_image)
 
     # TODO: Preprocess the image for the text detection model
-    preprocessed_image = preprocessingimage(preprocessed_image,768,1280)
+    preprocessed_image = preprocessingimage(preprocessed_image,(768,1280))  # remember to put height and width in ()
 
     return preprocessed_image
 
@@ -51,5 +51,5 @@ def car_meta(input_image):
     preprocessed_image = np.copy(input_image)
 
     # TODO: Preprocess the image for the car metadata model
-    preprocessed_image = preprocessingimage(preprocessed_image,72,7)
+    preprocessed_image = preprocessingimage(preprocessed_image,(72,7)) # # remember to put height and width in ()
     return preprocessed_image
