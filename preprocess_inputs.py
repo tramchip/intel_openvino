@@ -3,6 +3,8 @@ import numpy as np
 
 #note: check the pre-trained model shape input, e.g / shape: [1x3x256x456] = [BxCxHxW]
 #B - batch size, C - number of channels, H - image heightm W - image width
+#syntax resize((Input_image, (width, height)) except for reshape() where you have to pass height first and then width one by one
+#width has horizontal pixels and height has vertical pixels on screen. Just consider television screen horizontal (x-axis) pixels are larger in numbers then the vertical pixels (y-axis)
 #https://docs.openvinotoolkit.org/latest/_models_intel_human_pose_estimation_0001_description_human_pose_estimation_0001.html
 
 def preprocessingimage(input_image, height, width):
@@ -21,7 +23,7 @@ def pose_estimation(input_image):
     preprocessed_image = np.copy(input_image)
 
     # TODO: Preprocess the image for the pose estimation model
-    preprocessed_image = preprocessingimage(preprocessed_image,(256,456)) # remember to put height and width in ()
+    preprocessed_image = preprocessingimage(preprocessed_image,(456,256)) # remember to put height and width in ()
 
     return preprocessed_image
 
@@ -36,7 +38,7 @@ def text_detection(input_image):
     preprocessed_image = np.copy(input_image)
 
     # TODO: Preprocess the image for the text detection model
-    preprocessed_image = preprocessingimage(preprocessed_image,(768,1280))  # remember to put height and width in ()
+    preprocessed_image = preprocessingimage(preprocessed_image,(1280,768))  # remember to put height and width in ()
 
     return preprocessed_image
 
@@ -51,5 +53,5 @@ def car_meta(input_image):
     preprocessed_image = np.copy(input_image)
 
     # TODO: Preprocess the image for the car metadata model
-    preprocessed_image = preprocessingimage(preprocessed_image,(72,7)) # # remember to put height and width in ()
+    preprocessed_image = preprocessingimage(preprocessed_image,(7,72)) # # remember to put height and width in ()
     return preprocessed_image
